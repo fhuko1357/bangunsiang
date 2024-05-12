@@ -77,6 +77,8 @@ async function startBrowser(data) {
                 '--disable-setuid-sandbox',
                 '--ignore-certificate-errors',
                 '--ignore-certificate-errors-skip-list',
+                '--disable-extensions-except=${CapSolver.Browser.Extension},
+                '--load-extension=${CapSolver.Browser.Extension}`,
                 '--disable-dev-shm-usage'
             ]
         })
