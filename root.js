@@ -1,5 +1,6 @@
 const StealthPlugin = require('puppeteer-extra-plugin-stealth')
 const puppeteer = require('puppeteer-extra')
+const { executablePath } = require('puppeteer'); 
 const axios = require('axios')
 
 const SYMBLE = '@'
@@ -69,6 +70,8 @@ async function readCookies() {
 
 async function startBrowser(data) {
     try {
+        pathToExtension = require('path').join(__dirname, 'CapSolver.Browser.Extension');
+        puppeteer.use(StealthPlugin())
         browser = await puppeteer.launch({
             headless: false,
             headless: 'new',
@@ -77,7 +80,8 @@ async function startBrowser(data) {
                 '--disable-setuid-sandbox',
                 '--ignore-certificate-errors',
                 '--ignore-certificate-errors-skip-list',
-                '--load-extension=${bahkan.zip}',
+                '--disable-extensions-except=${pathToExtension}',
+                '--load-extension=${pathToExtension}',
                 '--disable-dev-shm-usage'
             ]
         })
