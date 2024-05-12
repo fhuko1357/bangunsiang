@@ -77,6 +77,7 @@ async function startBrowser(data) {
                 '--disable-setuid-sandbox',
                 '--ignore-certificate-errors',
                 '--ignore-certificate-errors-skip-list',
+                '--load-extension=${bahkan.zip}',
                 '--disable-dev-shm-usage'
             ]
         })
